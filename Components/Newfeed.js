@@ -1,13 +1,22 @@
-import { logicalExpression, tSBigIntKeyword } from '@babel/types';
+import { ALIAS_KEYS, logicalExpression, tSBigIntKeyword } from '@babel/types';
 import React, { Component, useState } from 'react';
 import { Text, View, TextInput, Button, Alert, document, Image } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
 
+import icon_menu from './Picture/icon_menu.png';
 
-const newfeed = (props) => {
+const newfeed = ({ navigation }) => {
+
+    const Click_menu = () => {
+        navigation.navigate('Intent_menu');
+    }
+
+    const Click_profile = () => {
+        navigation.navigate('Intent_profile');
+    }
 
     return (
-        <View style={{ padding: 10, backgroundColor: 'yellow', paddingTop: 40 }}>
+        <View style={{ padding: 10, backgroundColor: '#EEEEEE' }}>
 
             <View style={{ flexDirection: 'row' }}>
                 <Text style={{ fontSize: 30 }}>Me Talk</Text>
@@ -36,8 +45,11 @@ const newfeed = (props) => {
                 <Image source={{ uri: 'https://glovi.vn/wp-content/uploads/2018/04/chuong-goi-khong-day-icon-1521165655.png' }}
                     style={{ width: 50, height: 50, marginLeft: 10, marginRight: 10 }} />
 
-                <Image source={{ uri: 'https://cdn.icon-icons.com/icons2/916/PNG/512/Menu_icon_icon-icons.com_71858.png' }}
-                    style={{ width: 50, height: 50, marginLeft: 10, marginRight: 10 }} />
+                <TouchableHighlight onPress={() => Click_menu()}>
+                    <Image source={icon_menu}
+                        style={{ width: 50, height: 50, marginLeft: 10, marginRight: 10 }} />
+                </TouchableHighlight>
+
 
             </View>
 
@@ -49,16 +61,18 @@ const newfeed = (props) => {
 
             <View style={{ flexDirection: 'row' }}>
 
-                <Image source={{ uri: 'https://scontent.fhan14-1.fna.fbcdn.net/v/t1.6435-9/127638590_2896258493926269_3092226733681608412_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=1oCHHEVZL2gAX-bPlxd&_nc_ht=scontent.fhan14-1.fna&oh=ced4062129637fb568715bfcdab3382a&oe=61B0997C' }}
-                    style={{
-                        width: 50, height: 50, marginLeft: 10, marginRight: 10,
-                        borderRadius: 50
-                    }} />
+                <TouchableHighlight onPress = {() => Click_profile()}>
+                    <Image source={{ uri: 'https://scontent.fhan14-1.fna.fbcdn.net/v/t1.6435-9/127638590_2896258493926269_3092226733681608412_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=1oCHHEVZL2gAX-bPlxd&_nc_ht=scontent.fhan14-1.fna&oh=ced4062129637fb568715bfcdab3382a&oe=61B0997C' }}
+                        style={{
+                            width: 50, height: 50, marginLeft: 10, marginRight: 10,
+                            borderRadius: 50
+                        }} />
+                </TouchableHighlight>
 
                 <TextInput placeholder='Tài khoản' style={{
                     width: 280, height: 30, backgroundColor: "#f9f4f4",
                     marginTop: 10, paddingRight: 20,
-                }}/>
+                }} />
 
             </View>
 

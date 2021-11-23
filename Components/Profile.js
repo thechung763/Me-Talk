@@ -1,16 +1,11 @@
 import { logicalExpression, tSBigIntKeyword } from '@babel/types';
 import React, { Component, useState } from 'react';
-import { Text, View, TextInput, Button, Alert, Image} from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { createStackNavigator } from '@react-navigation/stack';
+import { Text, View, TextInput, Button, Alert, Image } from 'react-native';
+import { ScrollView, TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
 import login from './Login';
-import { NavigationContainer } from '@react-navigation/native';
 
 
-const intents_profile = (props) => {
-
-    const Stack = createStackNavigator();
-
+const intents_profile = (navigation) => {
 
     const back = () => {
         Alert.alert('tro ve');
@@ -20,17 +15,32 @@ const intents_profile = (props) => {
         Alert.alert('edit profile');
     }
 
+    const add_picture1 = () => {
+        Alert.alert('Add picture 1');
+    }
+
+    const add_avata = () => {
+        Alert.alert('add avata');
+    }
+
+    const new_post = () => {
+        Alert.alert('new post');
+    }
+
+    const view_picture = () => {
+        Alert.alert('View picture');
+    }
+
     return (
-        <NavigationContainer>
+        <ScrollView>
             <View style={{ backgroundColor: 'white' }}>
-                <Stack.Navigator>
-                    <Stack.Screen name="Notifications" component={login} />
 
-                </Stack.Navigator>
-                <View style={{ marginTop: 40, marginLeft: 10, flexDirection: 'row' }}>
+                <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
 
-                    <Image source={{ uri: 'https://image.flaticon.com/icons/png/512/93/93634.png' }}
-                        style={{ width: 30, height: 30 }} />
+                    <TouchableHighlight onPress={() => back()}>
+                        <Image source={{ uri: 'https://image.flaticon.com/icons/png/512/93/93634.png' }}
+                            style={{ width: 30, height: 30 }} />
+                    </TouchableHighlight>
 
                     <TextInput placeholder='Tìm kiếm' style={{
                         width: 300, height: 30, backgroundColor: "#f9f4f4", paddingLeft: 10, paddingRight: 10,
@@ -39,16 +49,22 @@ const intents_profile = (props) => {
                 </View>
 
                 <View style={{ padding: 10 }} >
-                    <Image source={{ uri: 'https://scontent.fhan2-1.fna.fbcdn.net/v/t1.6435-9/186558330_3022952141256903_7409483946432394087_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=e3f864&_nc_ohc=8RqEe7jxifsAX-VtWkI&_nc_ht=scontent.fhan2-1.fna&oh=c7b7d712e9ae482d41cd098d4c7e11ce&oe=61B27AF4' }}
-                        style={{ width: 370, height: 220, borderTopRightRadius: 20, borderTopLeftRadius: 20 }} />
+                    <TouchableHighlight onPress={() => view_picture()} >
+                        <Image source={{ uri: 'https://scontent.fhan2-1.fna.fbcdn.net/v/t1.6435-9/186558330_3022952141256903_7409483946432394087_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=e3f864&_nc_ohc=8RqEe7jxifsAX-VtWkI&_nc_ht=scontent.fhan2-1.fna&oh=c7b7d712e9ae482d41cd098d4c7e11ce&oe=61B27AF4' }}
+                            style={{ width: 370, height: 220, borderTopRightRadius: 20, borderTopLeftRadius: 20 }} />
+                    </TouchableHighlight>
+
                 </View>
 
                 <View>
                     <Image source={{ uri: 'https://besthqwallpapers.com/Uploads/30-11-2019/113897/thumb2-white-fabric-macro-fabric-textures-white-fabric-background-white-backgrounds.jpg' }}
-                        style={{ width: 40, height: 40, marginTop: -60, borderRadius: 50, marginLeft: 330 }}></Image>
+                        style={{ width: 40, height: 40, marginTop: -60, borderRadius: 50, marginLeft: 330 }} />
+
                     <Image source={{ uri: 'https://static.thenounproject.com/png/187803-200.png' }}
-                        style={{ width: 30, height: 30, marginTop: -35, marginLeft: 335 }}></Image>
+                        style={{ width: 30, height: 30, marginTop: -35, marginLeft: 335 }} />
+
                 </View>
+
 
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Image source={{ uri: 'https://besthqwallpapers.com/Uploads/30-11-2019/113897/thumb2-white-fabric-macro-fabric-textures-white-fabric-background-white-backgrounds.jpg' }}
@@ -64,9 +80,10 @@ const intents_profile = (props) => {
 
                 <View>
                     <Image source={{ uri: 'https://besthqwallpapers.com/Uploads/30-11-2019/113897/thumb2-white-fabric-macro-fabric-textures-white-fabric-background-white-backgrounds.jpg' }}
-                        style={{ width: 40, height: 40, marginTop: -50, borderRadius: 50, marginLeft: 230 }}></Image>
+                        style={{ width: 40, height: 40, marginTop: -50, borderRadius: 50, marginLeft: 230 }} />
+
                     <Image source={{ uri: 'https://static.thenounproject.com/png/187803-200.png' }}
-                        style={{ width: 30, height: 30, marginTop: -35, marginLeft: 235 }}></Image>
+                        style={{ width: 30, height: 30, marginTop: -35, marginLeft: 235 }} />
                 </View>
 
                 <View style={{ alignItems: 'center' }}>
@@ -83,7 +100,7 @@ const intents_profile = (props) => {
                     }}>
                         <Image source={{ uri: 'https://cdn3.iconfinder.com/data/icons/eightyshades/512/14_Add-512.png', width: 30, height: 30 }}>
                         </Image>
-                        <Button title='Thêm vào tin' color='black' />
+                        <Button title='Thêm vào tin' color='black' onPress={() => new_post()} />
                     </View>
 
                     <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#66CCCC', marginLeft: 10, borderRadius: 10, padding: 10 }}>
@@ -113,9 +130,8 @@ const intents_profile = (props) => {
                     <Image source={{ uri: 'https://static.thenounproject.com/png/51274-200.png', width: 30, height: 30 }} />
                     <Text style={{ fontSize: 20, marginTop: 3, marginLeft: 10 }}>Quê quán</Text>
                 </View>
-
             </View>
-        </NavigationContainer>
+        </ScrollView>
 
     )
 
