@@ -17,6 +17,7 @@ const login = ({ navigation }) => {
 
 
     const login = () => {
+        console.log("a");
         if (state.username == '0333690316' && state.password == '123') {
             navigation.navigate('Intent_newfeed');
         } else {
