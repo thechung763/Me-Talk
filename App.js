@@ -1,19 +1,27 @@
 import React from 'react';
+
 import { Text, View } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+{ /* man hinh */ }
 import login from './Components/Login';
 import newfeed from './Components/Newfeed';
-import Menu from './Components/menu';
+import menu from './Components/Menu';
 import notify from './Components/Notify';
 import profile from './Components/Profile';
+import sigin from './Components/Sigin';
+
 
 const Stack = createNativeStackNavigator();
+
 
 const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+
         <Stack.Screen
           name="Intent_login"
           component={login}
@@ -27,7 +35,7 @@ const MyStack = () => {
 
         <Stack.Screen
           name="Intent_menu"
-          component={Menu}
+          component={menu}
           options={{ title: 'Menu' }}
         />
 
@@ -35,6 +43,12 @@ const MyStack = () => {
           name="Intent_profile"
           component={profile}
           options={{ title: 'Profile' }}
+        />
+
+        <Stack.Screen
+          name="Intent_sigin"
+          component={sigin}
+          options={{ title: 'Sigin' }}
         />
 
       </Stack.Navigator>

@@ -14,7 +14,7 @@ import icon_avata from './Picture/icon_avata.jpg';
 import icon_henho from './Picture/icon_henho.png';
 import icon_flag from './Picture/icon_flag.png';
 import icon_event from './Picture/icon_event.png';
-
+import icon_search from './Picture/icon_search.png'
 
 const intent_menu = ({navigation}) => {
 
@@ -157,7 +157,7 @@ const intent_menu = ({navigation}) => {
 
                     <View style={{ backgroundColor: 'white', height: 70, borderRadius: 20, padding: 10, flexDirection: 'row', marginTop: 10 }}>
                         <View>
-                            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png' }}
+                            <Image source={icon_search}
                                 style={{ height: 50, width: 50 }} />
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center', }} >
