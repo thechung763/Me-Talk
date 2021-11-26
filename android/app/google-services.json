@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "6194634674",
+    "project_id": "me-talk-firebase",
+    "storage_bucket": "me-talk-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6194634674:android:2cc0af3373776b00f74eab",
+        "android_client_info": {
+          "package_name": "com.me_talk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6194634674-c45akkq1kv1m03188faa7b8bpaksqmpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr7IUhLhdgnaaIArmsRKjxZsUyj65DEK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6194634674-c45akkq1kv1m03188faa7b8bpaksqmpq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
