@@ -25,7 +25,7 @@ const login = ({ navigation }) => {
     };
 
     const sigin = () => {
-        Alert.alert('Sigin')
+        navigation.navigate('Intent_sigin');
     };
 
     const pass_login_username = (value) => {
@@ -46,27 +46,33 @@ const login = ({ navigation }) => {
 
     return (
 
-        <View>
+        <View style = {{alignItems:'center'}}>
 
-            <Text style={{ marginTop: 100, marginLeft: 130, fontSize: 30 }}>Đăng Nhập </Text>
+            <Text style={{ marginTop: 100, fontSize: 30 }}>Đăng Nhập </Text>
 
             <TextInput placeholder='Tài khoản' style={{
-                width: 250, height: 30, backgroundColor: "#f9f4f4",
-                marginTop: 10, marginLeft: 60, paddingLeft: 10, paddingRight: 10,
-                borderRadius: 10
+                width: '60%', backgroundColor: "#f9f4f4",
+                marginTop: 10, paddingLeft: 10, paddingRight: 10,
+                borderRadius: 10, paddingBottom:5, paddingTop:5
             }}
                 onChangeText={value => pass_login_username(value)}
             ></TextInput>
 
             <TextInput placeholder='Mật khẩu' style={{
-                width: 250, height: 30, backgroundColor: "#f9f4f4",
-                marginTop: 10, marginLeft: 60, paddingLeft: 10, paddingRight: 10,
-                borderRadius: 10
+                width: "60%", backgroundColor: "#f9f4f4",
+                marginTop: 10, paddingLeft: 10, paddingRight: 10,
+                borderRadius: 10, paddingTop:5, paddingBottom:5
             }}
                 onChangeText={value => pass_login_password(value)}
             ></TextInput>
+
+            <View style = {{marginTop:10}} >
             <Button title='Đăng nhập' onPress={() => login()}></Button>
+            </View>
+
+            <View style = {{marginTop:10}}>
             <Button title='Đăng kí' onPress={() => sigin()}></Button>
+            </View>
 
         </View>
     );

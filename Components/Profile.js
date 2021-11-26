@@ -33,7 +33,7 @@ const intents_profile = (navigation) => {
 
     return (
         <ScrollView>
-            <View style={{ backgroundColor: 'white' }}>
+            <View style={{ backgroundColor: 'white', width: '100%' }}>
 
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
 
@@ -42,10 +42,12 @@ const intents_profile = (navigation) => {
                             style={{ width: 30, height: 30 }} />
                     </TouchableHighlight>
 
-                    <TextInput placeholder='Tìm kiếm' style={{
-                        width: 300, height: 30, backgroundColor: "#f9f4f4", paddingLeft: 10, paddingRight: 10,
-                        borderRadius: 10, marginLeft: 10
-                    }} />
+                    <View style = {{width:'80%'}}>
+                        <TextInput placeholder='Tìm kiếm' style={{
+                            width: '100%', paddingTop:5, paddingBottom:5, backgroundColor: "#f9f4f4", paddingLeft: 10, paddingRight: 10,
+                            borderRadius: 10
+                        }} />
+                    </View>
                 </View>
 
                 <View style={{ padding: 10 }} >
@@ -108,10 +110,8 @@ const intents_profile = (navigation) => {
                     </View>
                 </View>
 
-                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Text>
-                        --------------------------------------------------
-                    </Text>
+                <View style={{ width: '100%', alignItems: 'center' }}>
+                    <View style={{ height: 2, width: '80%', backgroundColor: 'grey', marginTop: 5 }} />
                 </View>
 
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
