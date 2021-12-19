@@ -5,7 +5,7 @@ import { ScrollView, TouchableHighlight, TouchableOpacity } from 'react-native-g
 import login from './Login';
 
 
-const intents_group = (navigation) => {
+const intents_chat = (navigation) => {
 
     
 
@@ -14,7 +14,7 @@ const intents_group = (navigation) => {
             <View style={{ backgroundColor: 'white', width: '100%', height:'100%' }}>
 
                <Text>
-                   NOTIFY
+                   Chat
                </Text>
 
             </View>
@@ -23,4 +23,4 @@ const intents_group = (navigation) => {
     )
 
 }
-export default intents_group;
+export default intents_chat;

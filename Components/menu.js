@@ -1,7 +1,7 @@
 import { ALIAS_KEYS, logicalExpression, tSBigIntKeyword } from '@babel/types';
 import React, { Component, useState } from 'react';
-import { Text, View, TextInput, Button, Alert, Image, Settings } from 'react-native';
-import { ScrollView, TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
+import { Text, View, TextInput, Button, Alert, Image, Settings, TouchableHighlight } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import icon_home from './Picture/icon_home.png';
 import icon_group from './Picture/icon_group.png';
 import icon_watch from './Picture/icon_watch.png';
@@ -14,13 +14,20 @@ import icon_avata from './Picture/icon_avata.jpg';
 import icon_henho from './Picture/icon_henho.png';
 import icon_flag from './Picture/icon_flag.png';
 import icon_event from './Picture/icon_event.png';
-import icon_search from './Picture/icon_search.png'
+import icon_search from './Picture/icon_search.png';
+import icon_group_menu from './Picture/icon_group_menu.png';
+import icon_maket from './Picture/icon_maket.png';
+import icon_watch_menu from './Picture/icon_watch_menu.png';
+import icon_history from './Picture/icon_history.png';
 
-const intent_menu = ({navigation}) => {
+const intent_menu = ({ navigation }) => {
 
+    const Click_notify = () => {
+        navigation.navigate('Intent_notify');
+    }
 
     const view_profile = () => {
-        navigation.navigate("Intent_profile");
+        navigation.navigate("Intent_Profile");
     }
 
     const search_friend = () => {
@@ -83,7 +90,7 @@ const intent_menu = ({navigation}) => {
 
             <ScrollView>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
 
                     <Image source={icon_home}
                         style={{ width: 50, height: 50, marginLeft: 10, marginRight: 10 }} />
@@ -94,19 +101,17 @@ const intent_menu = ({navigation}) => {
                     <Image source={icon_watch}
                         style={{ width: 50, height: 50, marginLeft: 10, marginRight: 10 }} />
 
-                    <Image source={icon_noti}
-                        style={{ width: 50, height: 50, marginLeft: 10, marginRight: 10 }} />
+                    <TouchableHighlight onPress = {() => Click_notify()}>
+                        <Image source={icon_noti}
+                            style={{ width: 50, height: 50, marginLeft: 10, marginRight: 10 }} />
+                    </TouchableHighlight>
 
                     <Image source={icon_menu}
                         style={{ width: 50, height: 50, marginLeft: 10, marginRight: 10 }} />
 
                 </View>
 
-                <View>
-                    <Text style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-                        --------------------------------------------------------
-                    </Text>
-                </View>
+                <View style={{ height: 2, width: '100%', backgroundColor: 'grey', marginTop: 5 }} />
 
                 { /* Back and search */}
                 <View style={{ marginTop: 5, marginLeft: 10, flexDirection: 'row' }}>
@@ -146,11 +151,7 @@ const intent_menu = ({navigation}) => {
 
                 </TouchableHighlight>
 
-                <View>
-                    <Text style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-                        --------------------------------------------------------
-                    </Text>
-                </View>
+                <View style={{ height: 2, width: '100%', backgroundColor: 'grey', marginTop: 5 }} />
 
                 { /* Search friend */}
                 <TouchableHighlight onPress={() => search_friend()} >
@@ -173,7 +174,7 @@ const intent_menu = ({navigation}) => {
                 <TouchableHighlight onPress={() => view_group()}>
                     <View style={{ backgroundColor: 'white', height: 70, borderRadius: 20, padding: 10, flexDirection: 'row', marginTop: 10 }}>
                         <View>
-                            <Image source={{ uri: 'https://cdn4.iconfinder.com/data/icons/qigong-qi-energy-power-chakra/316/qi-gong-power-003-512.png' }}
+                            <Image source={icon_group_menu}
                                 style={{ height: 50, width: 50 }} />
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center', }} >
@@ -203,7 +204,7 @@ const intent_menu = ({navigation}) => {
                 <TouchableHighlight onPress={() => view_maketplace()}>
                     <View style={{ backgroundColor: 'white', height: 70, borderRadius: 20, padding: 10, flexDirection: 'row', marginTop: 10 }}>
                         <View>
-                            <Image source={{ uri: 'https://www.freeiconspng.com/thumbs/market-icons/market-icon-18.png' }}
+                            <Image source={icon_maket}
                                 style={{ height: 50, width: 50 }} />
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center', }} >
@@ -218,7 +219,7 @@ const intent_menu = ({navigation}) => {
                 <TouchableHighlight onPress={() => video_watch()}>
                     <View style={{ backgroundColor: 'white', height: 70, borderRadius: 20, padding: 10, flexDirection: 'row', marginTop: 10 }}>
                         <View>
-                            <Image source={{ uri: 'https://cdn4.iconfinder.com/data/icons/48-bubbles/48/23.Videos-512.png' }}
+                            <Image source={icon_watch_menu}
                                 style={{ height: 50, width: 50 }} />
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center', }} >
@@ -233,7 +234,7 @@ const intent_menu = ({navigation}) => {
                 <TouchableHighlight onPress={() => ki_niem()} >
                     <View style={{ backgroundColor: 'white', height: 70, borderRadius: 20, padding: 10, flexDirection: 'row', marginTop: 10 }}>
                         <View>
-                            <Image source={{ uri: 'https://image.flaticon.com/icons/png/512/32/32223.png' }}
+                            <Image source={icon_history}
                                 style={{ height: 50, width: 50 }} />
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center', }} >
@@ -274,12 +275,12 @@ const intent_menu = ({navigation}) => {
                     </View>
                 </TouchableHighlight>
 
-                <View style = {{marginTop:10, borderRadius:10, backgroundColor: '#D8D8D8'}} >
-                    <Button title = 'Cài đặt' color = 'black' onPress = {() => click_Settings()} />
+                <View style={{ marginTop: 10, borderRadius: 10, backgroundColor: '#D8D8D8' }} >
+                    <Button title='Cài đặt' color='black' onPress={() => click_Settings()} />
                 </View>
-                
-                <View style = {{marginTop:10, borderRadius:10, backgroundColor: '#D8D8D8', marginBottom: 20}} >
-                    <Button title = 'Đăng xuất' color = 'black' onPress = {() => click_logout()} />
+
+                <View style={{ marginTop: 10, borderRadius: 10, backgroundColor: '#D8D8D8', marginBottom: 20 }} >
+                    <Button title='Đăng xuất' color='black' onPress={() => click_logout()} />
                 </View>
 
             </ScrollView>

@@ -1,18 +1,24 @@
 import { logicalExpression, tSBigIntKeyword } from '@babel/types';
 import React, { Component, useState } from 'react';
-import { Text, View, TextInput, Button, Alert, Image } from 'react-native';
-import { ScrollView, TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
+import { Text, View, TextInput, Button, Alert, Image,TouchableHighlight } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import login from './Login';
 
+import icon_back from './Picture/icon_back.png';
+import icon_local from './Picture/icon_local.png';
+import icon_school from './Picture/icon_school.png';
+import icon_anhbia from './Picture/icon_anhbia.jpg';
+import icon_avata from './Picture/icon_avata.jpg';
 
-const intents_profile = (navigation) => {
+
+const intents_profile = ({navigation}) => {
 
     const back = () => {
         Alert.alert('tro ve');
     }
 
     const edit_profile = () => {
-        Alert.alert('edit profile');
+        navigation.navigate('Intent_Edit_profile');
     }
 
     const add_picture1 = () => {
@@ -32,19 +38,18 @@ const intents_profile = (navigation) => {
     }
 
     return (
-        <ScrollView>
-            <View style={{ backgroundColor: 'white', width: '100%' }}>
-
+        <View style={{ backgroundColor: 'white', width: '100%', height: '100%' }}>
+            <ScrollView>
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
 
                     <TouchableHighlight onPress={() => back()}>
-                        <Image source={{ uri: 'https://image.flaticon.com/icons/png/512/93/93634.png' }}
+                        <Image source={icon_back}
                             style={{ width: 30, height: 30 }} />
                     </TouchableHighlight>
 
-                    <View style = {{width:'80%'}}>
+                    <View style={{ width: '80%' }}>
                         <TextInput placeholder='Tìm kiếm' style={{
-                            width: '100%', paddingTop:5, paddingBottom:5, backgroundColor: "#f9f4f4", paddingLeft: 10, paddingRight: 10,
+                            width: '100%', paddingTop: 5, paddingBottom: 5, backgroundColor: "#f9f4f4", paddingLeft: 10, paddingRight: 10,
                             borderRadius: 10
                         }} />
                     </View>
@@ -52,7 +57,7 @@ const intents_profile = (navigation) => {
 
                 <View style={{ padding: 10 }} >
                     <TouchableHighlight onPress={() => view_picture()} >
-                        <Image source={{ uri: 'https://scontent.fhan2-1.fna.fbcdn.net/v/t1.6435-9/186558330_3022952141256903_7409483946432394087_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=e3f864&_nc_ohc=8RqEe7jxifsAX-VtWkI&_nc_ht=scontent.fhan2-1.fna&oh=c7b7d712e9ae482d41cd098d4c7e11ce&oe=61B27AF4' }}
+                        <Image source={icon_anhbia}
                             style={{ width: 370, height: 220, borderTopRightRadius: 20, borderTopLeftRadius: 20 }} />
                     </TouchableHighlight>
 
@@ -75,7 +80,7 @@ const intents_profile = (navigation) => {
                 </View>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Image source={{ uri: 'https://scontent.fhan2-1.fna.fbcdn.net/v/t1.6435-9/127638590_2896258493926269_3092226733681608412_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=1oCHHEVZL2gAX-bPlxd&tn=Bnst2hN9oXTaKp15&_nc_ht=scontent.fhan2-1.fna&oh=4937cda6b798c6fcb2bcffd389ed4e3f&oe=61B0997C' }}
+                    <Image source={icon_avata}
                         style={{ width: 130, height: 130, borderRadius: 100, marginTop: -140 }}>
                     </Image>
                 </View>
@@ -123,15 +128,17 @@ const intents_profile = (navigation) => {
                     <Text style={{ fontSize: 20, marginTop: 3, marginLeft: 10 }}>Nơi làm việc</Text>
                 </View>
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
-                    <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4JSrugWGXg1DPPGc79-i5bZtiZpsj6Yf_Xw&usqp=CAU', width: 30, height: 30 }} />
+                    <Image source={icon_school}
+                     style = {{width:30, height:30}} />
                     <Text style={{ fontSize: 20, marginTop: 3, marginLeft: 10 }}>Trường học</Text>
                 </View>
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
-                    <Image source={{ uri: 'https://static.thenounproject.com/png/51274-200.png', width: 30, height: 30 }} />
+                    <Image source={icon_local} style = {{width:30, height:30}} />
                     <Text style={{ fontSize: 20, marginTop: 3, marginLeft: 10 }}>Quê quán</Text>
                 </View>
-            </View>
-        </ScrollView>
+            </ScrollView>
+
+        </View>
 
     )
 
