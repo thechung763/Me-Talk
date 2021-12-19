@@ -1,6 +1,6 @@
 import { logicalExpression, tSBigIntKeyword } from '@babel/types';
-import React, { Component, useState } from 'react';
-import { Text, View, TextInput, Button, Alert, Image,TouchableHighlight } from 'react-native';
+import React, { Component, useState, state } from 'react';
+import { Text, View, TextInput, Button, Alert, Image, TouchableHighlight } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import login from './Login';
 
@@ -9,9 +9,25 @@ import icon_local from './Picture/icon_local.png';
 import icon_school from './Picture/icon_school.png';
 import icon_anhbia from './Picture/icon_anhbia.jpg';
 import icon_avata from './Picture/icon_avata.jpg';
+import background_grey from './Picture/background_grey.jpg';
+import icon_addPicture from './Picture/icon_add_picture.png';
+import icon_plus from './Picture/icon_plus.png';
+import icon_work from './Picture/icon_work.png';
+import icon_home from './Picture/icon_home.png';
+
+var Firebase = require('firebase');
 
 
-const intents_profile = ({navigation}) => {
+const intents_profile = ({ navigation }) => {
+
+    var ListTK = [];
+
+    var root = new Firebase("https://me-talk-firebase-default-rtdb.firebaseio.com/");
+
+    const sub = root.child("User").child('123');
+    sub.once("value").then(snapshot => {
+        ListTK = snapshot.val();
+    })
 
     const back = () => {
         Alert.alert('tro ve');
@@ -64,17 +80,17 @@ const intents_profile = ({navigation}) => {
                 </View>
 
                 <View>
-                    <Image source={{ uri: 'https://besthqwallpapers.com/Uploads/30-11-2019/113897/thumb2-white-fabric-macro-fabric-textures-white-fabric-background-white-backgrounds.jpg' }}
+                    <Image source={background_grey}
                         style={{ width: 40, height: 40, marginTop: -60, borderRadius: 50, marginLeft: 330 }} />
 
-                    <Image source={{ uri: 'https://static.thenounproject.com/png/187803-200.png' }}
+                    <Image source={icon_addPicture}
                         style={{ width: 30, height: 30, marginTop: -35, marginLeft: 335 }} />
 
                 </View>
 
 
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Image source={{ uri: 'https://besthqwallpapers.com/Uploads/30-11-2019/113897/thumb2-white-fabric-macro-fabric-textures-white-fabric-background-white-backgrounds.jpg' }}
+                    <Image source={background_grey}
                         style={{ width: 140, height: 140, borderRadius: 100, marginTop: -70 }}>
                     </Image>
                 </View>
@@ -86,16 +102,16 @@ const intents_profile = ({navigation}) => {
                 </View>
 
                 <View>
-                    <Image source={{ uri: 'https://besthqwallpapers.com/Uploads/30-11-2019/113897/thumb2-white-fabric-macro-fabric-textures-white-fabric-background-white-backgrounds.jpg' }}
+                    <Image source={background_grey}
                         style={{ width: 40, height: 40, marginTop: -50, borderRadius: 50, marginLeft: 230 }} />
 
-                    <Image source={{ uri: 'https://static.thenounproject.com/png/187803-200.png' }}
+                    <Image source={icon_addPicture}
                         style={{ width: 30, height: 30, marginTop: -35, marginLeft: 235 }} />
                 </View>
 
                 <View style={{ alignItems: 'center' }}>
                     <Text style={{ fontSize: 30, fontStyle: 'normal' }} >
-                        Thế Chung
+                        {ListTK.UserName}
                     </Text>
                 </View>
 
@@ -105,7 +121,7 @@ const intents_profile = ({navigation}) => {
                         backgroundColor: '#66CCCC', borderRadius: 10, marginLeft: 10, alignItems: 'center',
                         flexDirection: 'row', justifyContent: 'center', width: 300
                     }}>
-                        <Image source={{ uri: 'https://cdn3.iconfinder.com/data/icons/eightyshades/512/14_Add-512.png', width: 30, height: 30 }}>
+                        <Image source={{ icon_plus, width: 30, height: 30 }}>
                         </Image>
                         <Button title='Thêm vào tin' color='black' onPress={() => new_post()} />
                     </View>
@@ -120,20 +136,20 @@ const intents_profile = ({navigation}) => {
                 </View>
 
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
-                    <Image source={{ uri: 'https://cdn-icons-png.flaticon.com/512/25/25694.png', width: 30, height: 30 }} />
+                    <Image source={{ icon_home, width: 30, height: 30 }} />
                     <Text style={{ fontSize: 20, marginTop: 3, marginLeft: 10 }}>Tỉnh/Thành phố hiện tại</Text>
                 </View>
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
-                    <Image source={{ uri: 'https://e7.pngegg.com/pngimages/539/285/png-clipart-job-hunting-computer-icons-icon-design-suitcase-drawing-rectangle-employment.png', width: 30, height: 30 }} />
+                    <Image source={{icon_work, width: 30, height: 30 }} />
                     <Text style={{ fontSize: 20, marginTop: 3, marginLeft: 10 }}>Nơi làm việc</Text>
                 </View>
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
                     <Image source={icon_school}
-                     style = {{width:30, height:30}} />
+                        style={{ width: 30, height: 30 }} />
                     <Text style={{ fontSize: 20, marginTop: 3, marginLeft: 10 }}>Trường học</Text>
                 </View>
                 <View style={{ marginTop: 10, marginLeft: 10, flexDirection: 'row' }}>
-                    <Image source={icon_local} style = {{width:30, height:30}} />
+                    <Image source={icon_local} style={{ width: 30, height: 30 }} />
                     <Text style={{ fontSize: 20, marginTop: 3, marginLeft: 10 }}>Quê quán</Text>
                 </View>
             </ScrollView>
